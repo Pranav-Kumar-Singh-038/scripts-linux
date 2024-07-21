@@ -40,6 +40,8 @@ First, clone the repository to your local machine.
    nano ~/.config/autostart/wallpaper.sh.desktop
    ```
 
+if autostart folder is absent first create it, then continue with the above.
+
 2. **Paste the code from `wallpaper.sh.desktop` of this repo into `wallpaper.sh.desktop`:**
 
 ### 4. Set Up Aliases in `.bashrc`
@@ -50,7 +52,7 @@ First, clone the repository to your local machine.
    nano ~/.bashrc
    ```
 
-2. **Add the lines from `.bashrc` to add aliases for `nextwall` and `prevwall` commands:**
+2. **Add the lines from `.bashrc.txt` to add aliases for `nextwall` and `prevwall` commands:**
 
 
 3. **Apply the changes:**
