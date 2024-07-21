@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=/bin/bash -c "~/wallpaper.sh next"
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Run Wallpaper Script
+Comment=Runs the wallpaper script at startup
