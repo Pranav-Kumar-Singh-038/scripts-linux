@@ -52,7 +52,7 @@ if autostart folder is absent first create it, then continue with the above.
    nano ~/.bashrc
    ```
 
-2. **Add the lines from `.bashrc.txt` to add aliases for `nextwall` and `prevwall` commands:**
+2. **Add the lines from `bashrc` to add aliases for `nextwall` and `prevwall` commands:**
 
 
 3. **Apply the changes:**
