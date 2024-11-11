@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WALLPAPER_DIR=~/Wallpapers
+WALLPAPER_DIR=/path/to/wallpaper/directory
 CURRENT_INDEX_FILE=~/.current_wallpaper_index
 
 # Ensure the index file exists and initialize if it doesn't
@@ -9,14 +9,19 @@ if [ ! -f "$CURRENT_INDEX_FILE" ]; then
 fi
 
 CURRENT_INDEX=$(cat "$CURRENT_INDEX_FILE")
-WALLPAPERS=($(ls "$WALLPAPER_DIR"))
+# Filter for specific image file types
+WALLPAPERS=($(ls "$WALLPAPER_DIR" | grep -E '\.(jpg|jpeg|png|bmp|gif)$'))
 TOTAL_WALLPAPERS=${#WALLPAPERS[@]}
 
 # Function to set wallpaper
 set_wallpaper() {
     WALLPAPER="${WALLPAPERS[$CURRENT_INDEX]}"
-    gsettings set org.gnome.desktop.background picture-uri "file://$WALLPAPER_DIR/$WALLPAPER"
-    gsettings set org.gnome.desktop.background picture-uri-dark "file://$WALLPAPER_DIR/$WALLPAPER"
+    if [ -f "$WALLPAPER_DIR/$WALLPAPER" ]; then
+        gsettings set org.gnome.desktop.background picture-uri "file://$WALLPAPER_DIR/$WALLPAPER"
+        gsettings set org.gnome.desktop.background picture-uri-dark "file://$WALLPAPER_DIR/$WALLPAPER"
+    else
+        echo "Wallpaper file not found: $WALLPAPER_DIR/$WALLPAPER"
+    fi
 }
 
 # Function to increment index
